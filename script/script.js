@@ -147,9 +147,12 @@ async function acceptChangeHandler() {
         author: 'TomaszN'
     });
     closePopup()
-
+reloadThePage()
 
 }
+function reloadThePage(){
+    window.location.reload();
+} 
 
 function openPopup() {
     $popup.style.display = "flex";
