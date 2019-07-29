@@ -1,0 +1,145 @@
+body {
+  background-image: url("../img/bgmin.jpg");
+  font-size: 18px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.home {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.todo {
+  width: 80%;
+}
+
+.todo_title {
+  color: white;
+  text-align: center;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.info {
+  display: none;
+
+}
+
+.weather {
+  display: none;
+
+}
+
+.input-field {
+  width: 90%;
+}
+
+.collection .collection-item {
+  opacity: 0.7;
+  display: block;
+  justify-content: unset;
+}
+
+textarea.materialize-textarea {
+  color: white;
+
+}
+.popup_title{
+  color:black;
+  text-align: center;
+}
+.popup{
+  background-color: white;
+  opacity: 0.98;
+  width:60%;
+  height:250px;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 10%;
+  left: 20%;
+  z-index: 1;
+  border-radius: 3px;
+  transition: 1s;
+  animation: none;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:0.98;}
+}
+.x{
+  content: "x";
+  display:block;
+  position:absolute;
+  right: 10px;
+  top: 0px;
+  cursor:pointer;
+}
+.x:hover{
+  color:#1976d2;
+  transition: 1s;
+
+}
+.popup_button{
+  text-align: center;
+
+}
+.done {
+  position: relative;
+  display: none;
+  text-decoration-line: line-through;
+}
+#list{
+  text-align: center;
+}
+@media screen and (min-width: 768px) {
+  .collection .collection-item {
+    opacity: 0.7;
+    display: flex;
+    justify-content: space-between;
+  }
+  .done {
+    display: inline-block;
+    text-decoration-line: none;
+  }
+  .done::before {
+  content: '';
+  border-bottom: 3px solid #1976d2;
+  left: 2%;
+  margin-top: calc(0.125em / 2 * -1);
+  position: absolute;
+  right: 0;
+  top: 40%;
+  width: 45%;
+  }
+  .info {
+    display: flex;
+    width: 30%;
+  }
+  
+  .weather {
+    display:flex;
+    width: 30%;
+  }
+  .todo {
+    width: 60%;
+  }
+  #list{
+    text-align: unset;
+  }
+  .popup{
+  width:50%;
+  height:200px;
+  left: unset;
+  animation: fadeIn 0.3s;
+  }
+}

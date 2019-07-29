@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pl_PL">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lista ToDo</title>
+
+    <head>
+        <link rel="stylesheet" type="text/css" href="style/materialize.css">
+        <link rel="stylesheet" type="text/css" href="style/style.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    </head>
+
+<body>
+    <script src="script/script.js"></script>
+    <section class="home">
+        <section class="info"></section>
+        <section class="todo">
+            <h3 class="todo_title">ToDo</h3>
+            <div class="row">
+                <div class="input-field">
+                    <i class="material-icons prefix">create</i>
+                    <textarea id="input_todo" class="materialize-textarea" placeholder="add your task here"></textarea>
+                </div>
+                <button id="add_todo" class="btn waves-effect waves-light" type="submit" name="action">Add
+                </button>
+            </div>
+            <ul id="list" class="collection"></ul>
+            <section id="popup" class="popup">
+                <div id='close' class='x'>x</div>
+                <h4 class="popup_title">Edit your task</h4>
+                <div class="input-field col s6">
+                    <input id="edit_input" type="text">
+                    <div class="popup_button"><button id='accept' class="btn waves-effect waves-light" type="submit"
+                            name="action">Accept
+                            <i class="material-icons right">check</i>
+                        </button>
+                        <button id='cancel' class="btn waves-effect waves-light" type="submit" name="action">Cancel
+                            <i class="material-icons right">cancel</i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </section>
+        <section class="weather"></section>
+    </section>
+
+</body>
+
+</html>
