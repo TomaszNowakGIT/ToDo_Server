@@ -128,7 +128,7 @@ function removeListElement(id) {
 
 function editListElement(id) {
     let edit_text = document.getElementById(id);
-    addDataToPopup(edit_text.firstChild.innerText, id);
+    addDataToPopup(edit_text.firstChild.innerText,id);
 
     currentTodo = id;
     openPopup();
@@ -138,21 +138,20 @@ function addDataToPopup(title, id) {
     $edit_input.value = title, id;
 }
 
-async function acceptChangeHandler() {
-    debugger;
+function acceptChangeHandler() {
     let newText = $edit_input.value
-    var todoEditText = document.getElementById('#' + currentTodo);
-    await axios.put('http://195.181.210.249:3000/todo/' + currentTodo, {
+    //var todoEditText = document.getElementById(currentTodo);
+    var todoEditText = document.querySelector('#' + currentTodo + ' span')
+    todoEditText.innerText = newText;
+     axios.put(BASE_URL + currentTodo, {
         title: $edit_input.value,
         author: 'TomaszN'
     });
+    debugger;
     closePopup()
-reloadThePage()
+
 
 }
-function reloadThePage(){
-    window.location.reload();
-} 
 
 function openPopup() {
     $popup.style.display = "flex";
