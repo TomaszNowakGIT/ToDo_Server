@@ -73,7 +73,7 @@ function addNewElementToList(title,id) {
 function createElement(title,id) {
 
     let newElement = document.createElement('li');
-    newElement.id = id;
+    newElement.id = 'todo-'+id;
     newElement.classList.add('collection-item');
 
     let newSpan = document.createElement('span')
@@ -118,7 +118,7 @@ function listClickManager(event) {
 }
 
 function removeListElement(id) {
-    axios.delete(BASE_URL + id)
+    axios.delete(BASE_URL + id.replace("todo-", ""));
     document.getElementById(id).remove();
 
 
@@ -129,7 +129,6 @@ function removeListElement(id) {
 function editListElement(id) {
     let edit_text = document.getElementById(id);
     addDataToPopup(edit_text.firstChild.innerText,id);
-
     currentTodo = id;
     openPopup();
 }
@@ -138,16 +137,15 @@ function addDataToPopup(title, id) {
     $edit_input.value = title, id;
 }
 
-function acceptChangeHandler() {
+async function acceptChangeHandler() {
     let newText = $edit_input.value
     //var todoEditText = document.getElementById(currentTodo);
     var todoEditText = document.querySelector('#' + currentTodo + ' span')
     todoEditText.innerText = newText;
-     axios.put(BASE_URL + currentTodo, {
+    await axios.put(BASE_URL + currentTodo.replace("todo-", ""), {
         title: $edit_input.value,
         author: 'TomaszN'
     });
-    debugger;
     closePopup()
 
 
