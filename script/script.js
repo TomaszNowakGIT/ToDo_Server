@@ -139,7 +139,6 @@ function addDataToPopup(title, id) {
 
 async function acceptChangeHandler() {
     let newText = $edit_input.value
-    //var todoEditText = document.getElementById(currentTodo);
     var todoEditText = document.querySelector('#' + currentTodo + ' span')
     todoEditText.innerText = newText;
     await axios.put(BASE_URL + currentTodo.replace("todo-", ""), {
