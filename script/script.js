@@ -56,10 +56,8 @@ async function addButtonClickHandler(title, id) {
         var response = await axios.post(BASE_URL, {
             title: $input.value,
             author: "TomaszN"
-
         });
         addNewElementToList($input.value);
-
     }
 }
 
@@ -150,8 +148,12 @@ function closePopup() {
     $popup.style.display = "none";
 }
 
-function markElementAsDone(id) {
+async function markElementAsDone(id) {
     let done = document.getElementById(id);
     done.classList.toggle('done')
+    await axios.put(BASE_URL + id.replace("todo-", ""), {
+        author: 'TomaszN',
+        extra: 'done'
+    });
 }
 document.addEventListener('DOMContentLoaded', main);
