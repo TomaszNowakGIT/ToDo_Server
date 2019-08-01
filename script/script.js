@@ -9,12 +9,10 @@ let $cancel_btn;
 let $close_btn;
 let $popup;
 let $edit_input;
-//let index = 0;
 let currentTodo = 0;
 let id = [];
 const BASE_URL = 'http://195.181.210.249:3000/todo/'
 
-//const initialList = ['Pozmywaj naczynia', 'Zrób zakupy', 'Wyprowadź psa'];
 
 function main() {
     prepareDOMElements();
@@ -48,32 +46,31 @@ async function prepareInitialList() {
     var response = await axios.get(BASE_URL)
     response.data.forEach(element => {
         addNewElementToList(element.title, element.id);
-       //
     });
 
 }
 
-async function addButtonClickHandler(title,id) {
+async function addButtonClickHandler(title, id) {
     if ($input.value.trim()) {
         var response = await axios.post(BASE_URL, {
             title: $input.value,
             author: "TomaszN"
-    
+
         });
         addNewElementToList($input.value);
 
     }
 }
 
-function addNewElementToList(title,id) {
-    const newElement = createElement(title,id);
+function addNewElementToList(title, id) {
+    const newElement = createElement(title, id);
     $list.appendChild(newElement);
 }
 
-function createElement(title,id) {
+function createElement(title, id) {
 
     let newElement = document.createElement('li');
-    newElement.id = 'todo-'+id;
+    newElement.id = 'todo-' + id;
     newElement.classList.add('collection-item');
 
     let newSpan = document.createElement('span')
@@ -120,15 +117,12 @@ function listClickManager(event) {
 function removeListElement(id) {
     axios.delete(BASE_URL + id.replace("todo-", ""));
     document.getElementById(id).remove();
-
-
-
-    }
+}
 
 
 function editListElement(id) {
     let edit_text = document.getElementById(id);
-    addDataToPopup(edit_text.firstChild.innerText,id);
+    addDataToPopup(edit_text.firstChild.innerText, id);
     currentTodo = id;
     openPopup();
 }
@@ -146,8 +140,6 @@ async function acceptChangeHandler() {
         author: 'TomaszN'
     });
     closePopup()
-
-
 }
 
 function openPopup() {
@@ -157,7 +149,6 @@ function openPopup() {
 function closePopup() {
     $popup.style.display = "none";
 }
-
 
 function markElementAsDone(id) {
     let done = document.getElementById(id);
