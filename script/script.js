@@ -43,11 +43,12 @@ function prepareDOMEvents() {
 }
 
 async function prepareInitialList() {
-    var response = await axios.get(BASE_URL)
-    response.data.forEach(element => {
+    var response = await axios.get(BASE_URL);
+    var filter = response.data.filter(element => {
+        return element.author === 'TomaszN'});
+    filter.forEach(element => {
         addNewElementToList(element.title, element.id);
     });
-
 }
 
 async function addButtonClickHandler(title, id) {
@@ -101,7 +102,6 @@ function createElement(title, id) {
     newDiv.appendChild(newButtonDone);
 
     return newElement;
-
 }
 
 function listClickManager(event) {
@@ -153,6 +153,5 @@ function closePopup() {
 function markElementAsDone(id) {
     let done = document.getElementById(id);
     done.classList.toggle('done')
-
 }
 document.addEventListener('DOMContentLoaded', main);
