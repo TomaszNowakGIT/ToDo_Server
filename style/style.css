@@ -44,6 +44,7 @@ body {
   opacity: 0.7;
   display: block;
   justify-content: unset;
+  align-items: center;
 }
 
 textarea.materialize-textarea {
