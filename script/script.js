@@ -195,9 +195,16 @@ function closePopup() {
 async function markElementAsDone(id, extra) {
   let done = document.getElementById(id);
   done.classList.toggle("done");
-  await axios.put(BASE_URL + id.replace("todo-", ""), {
-    author: "TomaszN",
-    extra: "done"
-  });
+  if (done.classList.value === "collection-item done") {
+    await axios.put(BASE_URL + id.replace("todo-", ""), {
+      author: "TomaszN",
+      extra: "done"
+    });
+  } else if (done.classList.value === "collection-item") {
+    await axios.put(BASE_URL + id.replace("todo-", ""), {
+      author: "TomaszN",
+      extra: ""
+    });
+  }
 }
 document.addEventListener("DOMContentLoaded", main);
