@@ -48,7 +48,7 @@ async function prepareInitialList() {
     return element.author === "TomaszN";
   });
   filter.forEach(element => {
-    addNewElementToList(element.title, element.id);
+    addNewElementToList(element.title, element.id, element.extra);
   });
 }
 
@@ -62,15 +62,19 @@ async function addButtonClickHandler(title, id) {
   }
 }
 
-function addNewElementToList(title, id) {
-  const newElement = createElement(title, id);
+function addNewElementToList(title, id, extra) {
+  const newElement = createElement(title, id, extra);
   $list.appendChild(newElement);
 }
 
-function createElement(title, id) {
+function createElement(title, id, extra) {
   let newElement = document.createElement("li");
   newElement.id = "todo-" + id;
   newElement.classList.add("collection-item");
+  newElement.extra = extra;
+  if (extra === "done") {
+    newElement.classList.add("done");
+  }
 
   let newSpan = document.createElement("span");
   newSpan.innerText = title;
@@ -188,7 +192,7 @@ function closePopup() {
   $popup.style.display = "none";
 }
 
-async function markElementAsDone(id) {
+async function markElementAsDone(id, extra) {
   let done = document.getElementById(id);
   done.classList.toggle("done");
   await axios.put(BASE_URL + id.replace("todo-", ""), {
