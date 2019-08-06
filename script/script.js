@@ -26,6 +26,7 @@ function prepareDOMElements() {
   done_btn = document.querySelector("done");
   edit_btn = document.querySelector("edit");
   delete_btn = document.querySelector("delete");
+  desc_btn = document.querySelector("description");
   $accept_btn = document.getElementById("accept");
   $cancel_btn = document.getElementById("cancel");
   $close_btn = document.getElementById("close");
@@ -117,6 +118,18 @@ function createElement(title, id) {
   );
   newButtonDone.id = "done_" + id;
   newDiv.appendChild(newButtonDone);
+
+  let newButtonDescription = document.createElement("button");
+  newButtonDescription.innerText = "description";
+  newButtonDescription.classList.add(
+    "description",
+    "btn-small",
+    "waves-effect",
+    "waves-light",
+    "material-icons"
+  );
+  newButtonDescription.id = "description_" + id;
+  newDiv.appendChild(newButtonDescription);
 
   return newElement;
 }
