@@ -115,7 +115,7 @@ textarea.materialize-textarea {
     content: "";
     border-bottom: 3px solid #1976d2;
     left: 2%;
-    margin-top: calc(0.475em / 2 * -1);
+    margin-top: calc(-0.525em / 2 * -1);
     position: absolute;
     right: 0;
     top: 40%;
