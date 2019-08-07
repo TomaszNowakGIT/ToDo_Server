@@ -11,6 +11,7 @@ let $popup;
 let $edit_input;
 let currentTodo = 0;
 let id = [];
+let author = "TomaszN";
 const BASE_URL = "http://195.181.210.249:3000/todo/";
 
 function main() {
@@ -45,7 +46,7 @@ function prepareDOMEvents() {
 async function prepareInitialList() {
   var response = await axios.get(BASE_URL);
   var filter = response.data.filter(element => {
-    return element.author === "TomaszN";
+    return element.author === author;
   });
   filter.forEach(element => {
     addNewElementToList(element.title, element.id, element.extra);
@@ -56,7 +57,7 @@ async function addButtonClickHandler(title, id) {
   if ($input.value.trim()) {
     var response = await axios.post(BASE_URL, {
       title: $input.value,
-      author: "TomaszN"
+      author: author
     });
     addNewElementToList($input.value);
   }
@@ -179,7 +180,7 @@ async function acceptChangeHandler() {
   todoEditText.innerText = newText;
   await axios.put(BASE_URL + currentTodo.replace("todo-", ""), {
     title: $edit_input.value,
-    author: "TomaszN"
+    author: author
   });
   closePopup();
 }
@@ -195,16 +196,9 @@ function closePopup() {
 async function markElementAsDone(id, extra) {
   let done = document.getElementById(id);
   done.classList.toggle("done");
-  if (done.classList.value === "collection-item done") {
-    await axios.put(BASE_URL + id.replace("todo-", ""), {
-      author: "TomaszN",
-      extra: "done"
-    });
-  } else if (done.classList.value === "collection-item") {
-    await axios.put(BASE_URL + id.replace("todo-", ""), {
-      author: "TomaszN",
-      extra: ""
-    });
-  }
+  await axios.put(BASE_URL + id.replace("todo-", ""), {
+    author: author,
+    extra: done.classList.contains("done") ? "done" : ""
+  });
 }
 document.addEventListener("DOMContentLoaded", main);
