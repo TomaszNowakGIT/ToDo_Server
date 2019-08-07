@@ -140,10 +140,7 @@ function createElement(title, id, extra) {
 }
 
 function listClickManager(event) {
-  if (
-    event.target.className ===
-    "delete btn-small waves-effect waves-light material-icons"
-  ) {
+  if (event.target.classList.contains === "delete") {
     removeListElement(event.target.parentElement.parentElement.id);
   } else if (
     event.target.className ===
