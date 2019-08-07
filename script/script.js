@@ -140,17 +140,11 @@ function createElement(title, id, extra) {
 }
 
 function listClickManager(event) {
-  if (event.target.classList.contains === "delete") {
+  if (event.target.classList.contains("delete")) {
     removeListElement(event.target.parentElement.parentElement.id);
-  } else if (
-    event.target.className ===
-    "edit btn-small waves-effect waves-light material-icons"
-  ) {
+  } else if (event.target.classList.contains("edit")) {
     editListElement(event.target.parentElement.parentElement.id);
-  } else if (
-    event.target.className ===
-    "doneb btn-small waves-effect waves-light material-icons"
-  ) {
+  } else if (event.target.classList.contains("doneb")) {
     markElementAsDone(event.target.parentElement.parentElement.id);
   }
 }
