@@ -1,5 +1,5 @@
 body {
-  background-image: url("../img/bgmin.jpg");
+  background-image: url('https://picsum.photos/1440/2080?grayscale&blur=2');
   font-size: 18px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -48,10 +48,12 @@ body {
 textarea.materialize-textarea {
   color: white;
 }
+
 .popup_title {
   color: black;
   text-align: center;
 }
+
 .popup {
   background-color: white;
   opacity: 0.98;
@@ -74,10 +76,12 @@ textarea.materialize-textarea {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 0.98;
   }
 }
+
 .x {
   content: "x";
   display: block;
@@ -86,31 +90,38 @@ textarea.materialize-textarea {
   top: 0px;
   cursor: pointer;
 }
+
 .x:hover {
   color: #1976d2;
   transition: 1s;
 }
+
 .popup_button {
   text-align: center;
 }
+
 .done {
   position: relative;
   display: none;
   text-decoration-line: line-through;
 }
+
 #list {
   text-align: center;
 }
+
 @media screen and (min-width: 768px) {
   .collection .collection-item {
     opacity: 0.7;
     display: flex;
     justify-content: space-between;
   }
+
   .done {
     display: inline-block;
     text-decoration-line: none;
   }
+
   .done::before {
     content: "";
     border-bottom: 3px solid #1976d2;
@@ -121,6 +132,7 @@ textarea.materialize-textarea {
     top: 40%;
     width: 45%;
   }
+
   .info {
     display: flex;
     width: 30%;
@@ -130,16 +142,78 @@ textarea.materialize-textarea {
     display: flex;
     width: 30%;
   }
+
   .todo {
     width: 60%;
   }
+
   #list {
     text-align: unset;
   }
+
   .popup {
     width: 50%;
     height: 200px;
     left: unset;
     animation: fadeIn 0.3s;
   }
+}
+
+.days {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+
+}
+
+.result {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border: 1px white solid;
+  color: black;
+  background: white;
+  border-radius: 5px;
+  width: 40px;
+  height: 40px;
+  z-index: 0;
+  transition: transform .2s;
+  font-size: 20px;
+  font-weight: bold;
+  opacity: 0.7;
+  margin-right: 3px;
+  margin-top: 3px;
+}
+
+.result:hover {
+  transform: scale(1.1);
+  z-index: 1;
+  cursor: pointer;
+  border: 1px white solid;
+  background-color: #1976d2;
+  opacity: 0.7;
+}
+
+.today {
+  color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border: 1px black solid;
+
+  border-radius: 5px;
+  width: 40px;
+  height: 40px;
+  z-index: 1;
+
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

@@ -18,6 +18,7 @@ function main() {
   prepareDOMElements();
   prepareInitialList();
   prepareDOMEvents();
+  calendar();
 }
 
 function prepareDOMElements() {
@@ -192,4 +193,5 @@ async function markElementAsDone(id, extra) {
     extra: done.classList.contains("done") ? "done" : ""
   });
 }
+
 document.addEventListener("DOMContentLoaded", main);
