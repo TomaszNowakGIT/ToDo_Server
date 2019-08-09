@@ -223,5 +223,5 @@ textarea.materialize-textarea {
   display: flex;
   flex-direction: column;
   justify-content: start;
-
+  padding: 20px;
 }
