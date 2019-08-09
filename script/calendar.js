@@ -6,7 +6,7 @@ function calendar() {
    var month = d.getMonth();
    var year = d.getFullYear();
    var displaymonth = document.getElementById('month')
-   displaymonth.innerText += "Things ToDo in " + monthNames[d.getMonth()]
+   displaymonth.innerText += "Things ToDo in" + monthNames[d.getMonth()]
 
    function getDaysInMonth(month, year) {
       var date = new Date(Date.UTC(year, month, 1));
