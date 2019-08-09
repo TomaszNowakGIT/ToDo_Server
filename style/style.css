@@ -194,7 +194,7 @@ textarea.materialize-textarea {
   cursor: pointer;
   border: 1px white solid;
   background-color: #1976d2;
-  opacity: 0.5;
+  opacity: 0.6;
   color: white;
 }
 
@@ -222,6 +222,6 @@ textarea.materialize-textarea {
 .info {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: start;
+
 }
